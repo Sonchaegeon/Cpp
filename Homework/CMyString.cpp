@@ -9,6 +9,18 @@ CMyString::CMyString()
 
 CMyString::~CMyString()
 {
+	delete m_pszData;
+}
+
+CMyString& CMyString::operator=(const CMyString& rhs)
+{
+	SetString(rhs.m_pszData);
+	return *this;
+}
+
+CMyString::CMyString(const CMyString& rhs)
+{
+	SetString(rhs.m_pszData);
 }
 
 int CMyString::SetString(const char* pszParam)
