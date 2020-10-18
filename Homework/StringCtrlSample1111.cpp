@@ -2,25 +2,18 @@
 #include "CMyString.h"
 using namespace	std;
 
-void TestFunc(const CMyString& param) {
-	cout << param.GetString() << endl;
-}
-
 int	main()
 {
-	CMyString strData;
-	cout << strData.GetString() << endl;
-	strData.Release();
-	cout << strData.GetString() << endl;
+	CMyString strData, strTest;
+	strData.SetString("Hello");
+	strTest.SetString("World");
 
-	CMyString strData2;
-	strData2.SetString("");
-	cout << strData2.GetString() << endl;
-	strData2.Release();
+	//복사 생성
+	CMyString strNewData(strData);
+	cout << strNewData.GetString() << endl;
 
-	CMyString strData3;
-	strData3.SetString("Hello");
-	TestFunc(strData3);
-	cout << strData3.GetString() << endl;
-	strData3.Release();
+	//단순 대입 연산자 호출
+	CMyString str2;
+	str2 = strTest;
+	cout << str2.GetString() << endl;
 }
