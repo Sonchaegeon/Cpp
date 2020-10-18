@@ -5,11 +5,23 @@ public:
 	CMyString();
 	~CMyString();
 	CMyString& operator=(const CMyString& rhs);
+
+	//º¹»ç »ı¼ºÀÚ
 	CMyString(const CMyString& rhs);
+
+	//º¯È¯ »ı¼ºÀÚ
+	explicit CMyString(const char* pszParam);
+
+	//ÀÌµ¿ »ı¼ºÀÚ
+	CMyString(CMyString&& rhs);
+
+	operator char* () const {
+		return m_pszData;
+	}
 private:
-	// ë¬¸ìì—´ì„ ì €ì¥í•˜ê¸° ìœ„í•´ ë™ì í• ë‹¹í•œ ë©”ëª¨ë¦¬ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°
+	// ¹®ÀÚ¿­À» ÀúÀåÇÏ±â À§ÇØ µ¿ÀûÇÒ´çÇÑ ¸Ş¸ğ¸®¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍ
 	char* m_pszData;
-	// ì €ì¥ëœ ë¬¸ìì—´ì˜ ê¸¸ì´
+	// ÀúÀåµÈ ¹®ÀÚ¿­ÀÇ ±æÀÌ
 	int m_nLength;
 public:
 	int SetString(const char* pszParam);
