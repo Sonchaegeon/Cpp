@@ -1,17 +1,16 @@
-﻿#include <iostream>
+#include <iostream>
 #include "CMyString.h"
+#include "CMyStringEx.h"
 using namespace	std;
 
-CMyString TestFunc() {
-	CMyString strTest("TestFunc() return");
+int main() {
+	CMyStringEx strTest;
+	strTest.SetString("");
 	cout << strTest << endl;
 
-	return strTest;
-}
+	int nIndex = strTest.Find("손채건");
 
-int main() {
-	//이름없는 임시 객체가 만들어진다.
-	TestFunc();
+	cout << "Index : " << nIndex << endl;
 
 	return 0;
 }
