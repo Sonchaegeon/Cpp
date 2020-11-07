@@ -4,15 +4,9 @@
 using namespace	std;
 
 int main() {
-	CMyStringEx strTest;
+	CMyStringEx strLeft("학번:1111"), strRight(" 이름:손채건");
 
-	// 문자열이 필터링 되어 대체되는 경우
-	strTest.SetString("장애인");
-	cout << strTest << endl;
+	cout << strLeft << strRight << endl;
 
-	// 필터링 되지 않은 경우
-	strTest.SetString("학번 : 1111, 이름 : 손채건");
-	cout << strTest << endl;
-	
 	return 0;
 }
