@@ -16,14 +16,9 @@ int CMyStringEx::Find(const char* pszParam)
 }
 
 
-int CMyStringEx::SetString(const char* pszParam)
+void CMyStringEx::OnSetString(char* pszData, int nLength)
 {
-    if (strcmp("장애인", pszParam) == 0) {
-        CMyString::SetString("좋은 사람");
+    if (strcmp(pszData, "멍멍이아들") == 0) {
+        strcpy_s(pszData, nLength + 1, "*착한아들*");
     }
-    else {
-        CMyString::SetString(pszParam);
-    }
-
-    return 0;
 }
