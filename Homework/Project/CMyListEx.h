@@ -14,5 +14,6 @@ public:
     void InsertBack();
     void DeleteFront();
     void DeleteBack();
+    void PrintReverse();
 };
 
