@@ -29,14 +29,11 @@ int	main()
 			break;
 		case 5: myListex->Print();
 			break;
-
-			/*
 		case 6: myListex->PrintReverse();
 			break;
 		case 0: cout << "	종료합니다!\n";
 			delete	myListex;
 			return	0;
-			*/
 		default:
 			cout << "0, 1, 2, 3, 4, 5, 6 중 숫자를 입력하세요~! : ";
 			continue;
