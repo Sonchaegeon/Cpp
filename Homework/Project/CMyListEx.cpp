@@ -53,7 +53,13 @@ void CMyListEx::DeleteFront()
 void CMyListEx::DeleteBack()
 {
 	DNode* temp = tailNode;
-	tailNode = temp->prev;
+	if (temp->prev != nullptr) {
+		tailNode = temp->prev;
+		tailNode->link = nullptr;
+	}
+	else {
+		headNode = nullptr;
+	}
 	delete temp;
 	Print();
 }
@@ -73,4 +79,17 @@ void CMyListEx::Print()
 	cout << "데이터 개수 : " << m_nLength << "개\n\n";
 }
 
-
+void CMyListEx::PrintReverse()
+{
+	DNode* temp = tailNode;
+	m_nLength = 0;
+	cout << "[Tail] ";
+	while (temp != nullptr) {
+		cout << temp->data;
+		if (temp->prev != nullptr) cout << " - ";
+		m_nLength++;
+		temp = temp->prev;
+	}
+	cout << " [head]\n";
+	cout << "데이터 개수 : " << m_nLength << "개\n\n";
+}
