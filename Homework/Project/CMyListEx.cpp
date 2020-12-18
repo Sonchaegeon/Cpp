@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 int CMyListEx::InsertFront()
 {
 	int num;
@@ -20,8 +21,8 @@ int CMyListEx::InsertFront()
 		headNode = node;
 	}
 	Print();
-    return 0;
-}
+	return 0;
+}	
 
 void CMyListEx::InsertBack()
 {
@@ -45,6 +46,19 @@ void CMyListEx::InsertBack()
 void CMyListEx::DeleteFront()
 {
 	DNode* temp = headNode;
+	if (temp == nullptr) {
+		cout << "삭제할 데이터가 없습니다!" << endl;
+		return;
+	}
+
+	if (headNode == tailNode) {
+		headNode = nullptr;
+		tailNode = nullptr;
+		delete temp;
+		Print();
+		return;
+	}
+
 	headNode = temp->link;
 	delete temp;
 	Print();
@@ -53,6 +67,19 @@ void CMyListEx::DeleteFront()
 void CMyListEx::DeleteBack()
 {
 	DNode* temp = tailNode;
+	if (temp == nullptr) {
+		cout << "삭제할 데이터가 없습니다!" << endl;
+		return;
+	}
+
+	if (headNode == tailNode) {
+		headNode = nullptr;
+		tailNode = nullptr;
+		delete temp;
+		Print();
+		return;
+	}
+
 	if (temp->prev != nullptr) {
 		tailNode = temp->prev;
 		tailNode->link = nullptr;
@@ -68,6 +95,13 @@ void CMyListEx::Print()
 {
 	DNode* temp = headNode;
 	m_nLength = 0;
+
+	if (temp == nullptr) {
+		cout << "출력할 데이터가 없습니다." << endl;
+		return;
+	}
+
+	CMyListEx::printCount++;
 	cout << "[Head] ";
 	while (temp != nullptr) {
 		cout << temp->data;
@@ -77,12 +111,19 @@ void CMyListEx::Print()
 	}
 	cout << " [Tail]\n";
 	cout << "데이터 개수 : " << m_nLength << "개\n\n";
+	cout << "출력 개수 : " << CMyListEx::printCount << endl;
 }
 
 void CMyListEx::PrintReverse()
 {
 	DNode* temp = tailNode;
 	m_nLength = 0;
+
+	if (temp == nullptr) {
+		cout << "출력할 데이터가 없습니다." << endl;
+		return;
+	}
+
 	cout << "[Tail] ";
 	while (temp != nullptr) {
 		cout << temp->data;
@@ -92,4 +133,10 @@ void CMyListEx::PrintReverse()
 	}
 	cout << " [head]\n";
 	cout << "데이터 개수 : " << m_nLength << "개\n\n";
+}
+
+void CMyListEx::operator--()
+{
+	cout << "operator--" << endl;
+	DeleteFront();
 }
